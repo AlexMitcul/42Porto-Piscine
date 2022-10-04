@@ -1,52 +1,51 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_any.c                                           :+:      :+:    :+:   */
+/*   ft_count_if.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amitcul <amitcul@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/04 00:35:47 by alexmitcul        #+#    #+#             */
-/*   Updated: 2022/10/04 12:22:10 by amitcul          ###   ########.fr       */
+/*   Created: 2022/10/04 12:15:59 by amitcul           #+#    #+#             */
+/*   Updated: 2022/10/04 12:21:49 by amitcul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_any(char **tab, int (*f)(char*))
+int	ft_count_if(char **tab, int length, int (*f)(char*))
+{
+	int	i;
+	int	count;
+
+	i = 0;
+	count = 0;
+	while (i < length)
+	{
+		if (f(tab[i]) != 0)
+			count += 1;
+		i += 1;
+	}
+	return (count);
+}
+
+/* #include <stdio.h>
+
+int	contains_numeric(char *str)
 {
 	int	i;
 
 	i = 0;
-	while (tab[i] != 0)
+	while (str[i] != '\0')
 	{
-		if (f(tab[i]) != 0)
+		if (str[i] >= '0' && str[i] <= '9')
 			return (1);
 		i++;
 	}
 	return (0);
 }
 
-/* #include <stdio.h>
-#include <stdlib.h>
-
-int	is_numeric_line(char *s)
+int main()
 {
-	int	i;
-
-	i = 0;
-	while (s[i] != '\0')
-	{
-		if (s[i] < '0' || s[i] > '9')
-			return (0);
-		i++;
-	}
-	return (1);
-}
-
-int	main(void)
-{
+	char *tab[5] = {"abcd", "cgdj", "1as", "dasd", "asd2"};
 	int	length = 5;
-	char *arr[] = {"abasd", "asdas", "asdlk", "asd", "asdas", NULL};
-	printf("%d\n", ft_any(arr, &is_numeric_line));
-
-	return (0);
-}
- */
+	printf("result = %d\n", ft_count_if(tab, length, &contains_numeric)); // 2
+	return 0;
+} */
