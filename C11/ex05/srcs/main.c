@@ -3,28 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alexmitcul <alexmitcul@student.42.fr>      +#+  +:+       +#+        */
+/*   By: amitcul <amitcul@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 15:11:07 by alexmitcul        #+#    #+#             */
-/*   Updated: 2022/10/04 16:09:43 by alexmitcul       ###   ########.fr       */
+/*   Updated: 2022/10/04 22:32:24 by amitcul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "doop.h"
+#include "../includes/doop.h"
 
-int	validate_operations(int b, char operation)
+int	get_value(int a, int b, int (*f)(int, int))
 {
-	if (b == 0 && operation == '/')
-		return (write_error("Stop : division by zero"));
-	if (b == 0 && operation == '%')
-		return (write_error("Stop : modulo by zero"));
-	return (1);
+	return (f(a, b));
 }
 
 void	calculate(int a, int b, char operation)
 {
-	int	(*operations[5])(int, int);
+	int		(*operations[5])(int, int);
 	char	operations_symbols[5];
+	int		i;
 
 	operations[0] = &addition;
 	operations[1] = &substraction;
@@ -37,7 +34,17 @@ void	calculate(int a, int b, char operation)
 	operations_symbols[3] = '*';
 	operations_symbols[4] = '%';
 
-
+	i = 0;
+	while (i < 5)
+	{
+		if (operation == operations_symbols[i])
+		{
+			ft_putnbr(get_value(a, b, operations[i]));
+			return ;
+		}
+		i++;
+	}
+	ft_putnbr(0);
 }
 
 int	main(int argc, char *argv[])

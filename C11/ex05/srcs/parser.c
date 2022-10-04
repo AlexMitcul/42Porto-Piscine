@@ -3,12 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alexmitcul <alexmitcul@student.42.fr>      +#+  +:+       +#+        */
+/*   By: amitcul <amitcul@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 15:15:31 by alexmitcul        #+#    #+#             */
-/*   Updated: 2022/10/04 15:18:38 by alexmitcul       ###   ########.fr       */
+/*   Updated: 2022/10/04 22:32:23 by amitcul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "../includes/doop.h"
 
 char	get_operation(char *line)
 {
@@ -17,8 +19,11 @@ char	get_operation(char *line)
 	return (line[0]);
 }
 
-// ! Need to add ft_atoic.
-int	ft_atoi(char *str)
+int	validate_operations(int b, char operation)
 {
-	return (0); // !
+	if (b == 0 && operation == '/')
+		return (write_error("Stop : division by zero"));
+	if (b == 0 && operation == '%')
+		return (write_error("Stop : modulo by zero"));
+	return (1);
 }

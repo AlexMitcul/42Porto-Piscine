@@ -3,12 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alexmitcul <alexmitcul@student.42.fr>      +#+  +:+       +#+        */
+/*   By: amitcul <amitcul@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 16:12:30 by alexmitcul        #+#    #+#             */
-/*   Updated: 2022/10/04 16:25:39 by alexmitcul       ###   ########.fr       */
+/*   Updated: 2022/10/04 22:32:22 by amitcul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "../includes/doop.h"
 
 int ft_atoi(char *str)
 {
