@@ -6,7 +6,7 @@
 /*   By: amitcul <amitcul@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 12:14:25 by amitcul           #+#    #+#             */
-/*   Updated: 2022/10/05 12:56:36 by amitcul          ###   ########.fr       */
+/*   Updated: 2022/10/05 17:44:34 by amitcul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ static int	ft_strlen(char *str)
 {
 	int	i;
 
+	if (!str)
+		return (0);
 	i = 0;
 	while (str[i])
 		i++;
@@ -56,30 +58,29 @@ static void	to_base(unsigned int n, int sign, char *base_to)
 	}
 }
 
-static int	check_base(char *base)
+int	check_base(char *base)
 {
-	int	len;
 	int	i;
 	int	j;
 
+	i = 0;
 	if (!base)
 		return (0);
-	len = ft_strlen(base);
-	if (len <= 1)
-		return (0);
-	i = 0;
-	while (i < len - 1)
+	while (base[i])
 	{
-		j = i + 1;
-		while (j < len)
+		j = i;
+		while (base[j])
 		{
-			if (base[i] == base[j] || base[i] == '+' || base[i] == '-' || \
-			base[j] == '+' || base[j] == '-')
+			if (base[i] == base[j] && i != j)
+				return (0);
+			if (base[i] == '+' || base[i] == '-')
 				return (0);
 			j++;
 		}
 		i++;
 	}
+	if (i < 2)
+		return (0);
 	return (1);
 }
 
@@ -113,7 +114,7 @@ int main()
 	printf("\n");
 	ft_putnbr_base(-42, "0123456789");			// -42
 	printf("\n");
-	ft_putnbr_base(-42, "0123456789ABCDEF");	// -2A
+	ft_putnbr_base(-42, "012456789ABCDEF");	// -2A
 	printf("\n");
 	ft_putnbr_base(-42, "poneyvif");			// -vn
 	printf("\n");

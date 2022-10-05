@@ -6,7 +6,7 @@
 /*   By: amitcul <amitcul@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 20:00:58 by amitcul           #+#    #+#             */
-/*   Updated: 2022/10/03 20:48:57 by amitcul          ###   ########.fr       */
+/*   Updated: 2022/10/05 17:39:59 by amitcul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,8 +102,7 @@ char	**ft_split(char *str, char *charset)
 	return (lines);
 }
 
-/*
-#include <stdio.h>
+/* #include <stdio.h>
 #include <string.h>
 #include <malloc.h>
 #include <string.h>

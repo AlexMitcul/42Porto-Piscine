@@ -1,51 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ultimate_range.c                                :+:      :+:    :+:   */
+/*   ft_create_elem.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amitcul <amitcul@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/27 17:42:32 by amitcul           #+#    #+#             */
-/*   Updated: 2022/10/05 17:17:40 by amitcul          ###   ########.fr       */
+/*   Created: 2022/10/05 18:58:29 by amitcul           #+#    #+#             */
+/*   Updated: 2022/10/05 19:06:06 by amitcul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_list.h"
 #include <stdlib.h>
 
-int	ft_ultimate_range(int **range, int min, int max)
+t_list	*ft_create_elem(void *data)
 {
-	int	*arr;
-	int	i;
+	t_list	*item;
 
-	if (min >= max)
-		return (0);
-	arr = (int *) malloc(sizeof(int) * (max - min));
-	if (!arr)
-		return (-1);
-	i = 0;
-	while (min < max)
-	{
-		arr[i] = min;
-		min++;
-		i++;
-	}
-	*range = arr;
-	return (i);
+	item = (t_list*) malloc(sizeof(t_list));
+	if (!item)
+		return (NULL);
+	item->data = data;
+	item->next = NULL;
+	return (item);
 }
 
 /* #include <stdio.h>
-#include <limits.h>
 int main()
 {
-	int	**arr;
-	int	*arr2;
+	t_list	*item;
+	int	data = 42;
 
-	arr = &arr2;
-
-	printf("%d \n", ft_ultimate_range(arr, 0, 10));
-	for (int i = 0; i < 10; i++)
-		printf("%d ", arr2[i]);
-	printf("\n");
+	item = ft_create_elem(&data);
+	if (item != NULL)
+	{
+		printf("Item data is %d\n", (*(int *)item->data));
+		if (!item->next)
+			printf("Item next is NULL\n");
+	}
 	return 0;
-}
- */
+} */
