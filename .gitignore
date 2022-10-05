@@ -2,3 +2,4 @@
 dev
 a.out
 .vscode
+*.sh

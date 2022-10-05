@@ -6,7 +6,7 @@
 /*   By: amitcul <amitcul@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 18:58:29 by amitcul           #+#    #+#             */
-/*   Updated: 2022/10/05 19:06:06 by amitcul          ###   ########.fr       */
+/*   Updated: 2022/10/05 21:22:22 by amitcul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ t_list	*ft_create_elem(void *data)
 {
 	t_list	*item;
 
-	item = (t_list*) malloc(sizeof(t_list));
+	item = (t_list *) malloc(sizeof(t_list));
 	if (!item)
 		return (NULL);
 	item->data = data;

@@ -1,34 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_list_push_front.c                               :+:      :+:    :+:   */
+/*   ft_list_size.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amitcul <amitcul@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/05 19:06:36 by amitcul           #+#    #+#             */
-/*   Updated: 2022/10/05 21:21:17 by amitcul          ###   ########.fr       */
+/*   Created: 2022/10/05 21:22:54 by amitcul           #+#    #+#             */
+/*   Updated: 2022/10/05 21:40:58 by amitcul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_list.h"
 
-t_list	*ft_create_elem(void *data);
+/* t_list	*ft_create_elem(void *data);
+void	ft_list_push_front(t_list **begin_list, void *data); */
 
-void	ft_list_push_front(t_list **begin_list, void *data)
+/**
+ * Function 'ft_list_size' which returns the
+ * number of elements in the list.
+**/
+
+int	ft_list_size(t_list *begin_list)
 {
-	t_list	*item;
+	int	count;
 
-	if (*begin_list)
+	count = 0;
+	while (begin_list)
 	{
-		item = ft_create_elem(data);
-		item->next = *begin_list;
-		*begin_list = item;
+		begin_list = begin_list->next;
+		count += 1;
 	}
-	else
-		*begin_list = ft_create_elem(data);
+	return (count);
 }
 
-/* #include <stdlib.h>
+/* #include <stdio.h>
 int main()
 {
 	t_list	*head;
@@ -36,13 +41,8 @@ int main()
 	head = NULL;
 	ft_list_push_front(&head, "42");
 	ft_list_push_front(&head, "21");
-	ft_list_push_front(&head, "0");
+	ft_list_push_front(&head, "42");
+	printf("List size is %d\n", ft_list_size(head));
 
-	while (head)
-	{
-		printf("%s\n", (char*)head->data);
-		head = head->next;
-	}
 	return 0;
-}
- */
+} */

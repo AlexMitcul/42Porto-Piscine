@@ -1,42 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_create_elem.c                                   :+:      :+:    :+:   */
+/*   ft_list_last.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amitcul <amitcul@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/05 18:58:29 by amitcul           #+#    #+#             */
-/*   Updated: 2022/10/05 19:21:45 by amitcul          ###   ########.fr       */
+/*   Created: 2022/10/05 21:42:56 by amitcul           #+#    #+#             */
+/*   Updated: 2022/10/05 22:06:12 by amitcul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_list.h"
-#include <stdlib.h>
 
-t_list	*ft_create_elem(void *data)
+/* void	ft_list_push_front(t_list **begin_list, void *data); */
+
+t_list	*ft_list_last(t_list *begin_list)
 {
-	t_list	*item;
+	t_list	*p;
 
-	item = (t_list*) malloc(sizeof(t_list));
-	if (!item)
-		return (NULL);
-	item->data = data;
-	item->next = NULL;
-	return (item);
+	p = begin_list;
+	while (p->next)
+		p = p->next;
+	return (p);
 }
 
 /* #include <stdio.h>
 int main()
 {
-	t_list	*item;
-	int	data = 42;
+	t_list	*head;
 
-	item = ft_create_elem(&data);
-	if (item != NULL)
-	{
-		printf("Item data is %d\n", (*(int *)item->data));
-		if (!item->next)
-			printf("Item next is NULL\n");
-	}
+	head = NULL;
+	ft_list_push_front(&head, "I'm last!!!");
+	ft_list_push_front(&head, "21");
+	ft_list_push_front(&head, "42");
+
+	head = ft_list_last(head);
+	printf("Last item contains\n%s\n", (char*)head->data);
+
 	return 0;
 } */
