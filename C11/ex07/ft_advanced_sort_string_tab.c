@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_advanced_sort_string_tab.c                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alexmitcul <alexmitcul@student.42.fr>      +#+  +:+       +#+        */
+/*   By: amitcul <amitcul@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 14:45:25 by alexmitcul        #+#    #+#             */
-/*   Updated: 2022/10/04 15:00:30 by alexmitcul       ###   ########.fr       */
+/*   Updated: 2022/10/06 20:42:46 by amitcul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static int	get_tab_len(char **tab)
 	return (i);
 }
 
-void	ft_advanced_sort_string_tab(char **tab, int(*cmp)(char *, char *))
+void	ft_advanced_sort_string_tab(char **tab, int (*cmp)(char *, char *))
 {
 	int	i;
 	int	j;

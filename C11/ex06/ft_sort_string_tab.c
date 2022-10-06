@@ -3,15 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   ft_sort_string_tab.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alexmitcul <alexmitcul@student.42.fr>      +#+  +:+       +#+        */
+/*   By: amitcul <amitcul@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 14:19:17 by alexmitcul        #+#    #+#             */
-/*   Updated: 2022/10/04 14:46:16 by alexmitcul       ###   ########.fr       */
+/*   Updated: 2022/10/06 20:43:13 by amitcul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <string.h>
-#include <stdio.h>
 
 static void	ft_swap(char **a, char **b)
 {
@@ -32,21 +29,21 @@ static int	get_tab_len(char **tab)
 	return (i);
 }
 
-// ! need to test
 static int	ft_strcmp(char *s1, char *s2)
 {
-	int	i;
+	unsigned char	p1;
+	unsigned char	p2;
 
-	if (!s1 || !s2)
-		return (0);
-	i = 0;
-	while (s1[i] && s2[i])
+	p1 = (unsigned char) *s1++;
+	p2 = (unsigned char) *s2++;
+	if (p1 == '\0')
+		return (p1 - p2);
+	while (p1 == p2 && p1 != '\0')
 	{
-		if (s1[i] != s2[i])
-			break ;
-		i++;
+		p1 = (unsigned char) *s1++;
+		p2 = (unsigned char) *s2++;
 	}
-	return ((unsigned char)s1[i] - (unsigned int)s2[i]);
+	return (p1 - p2);
 }
 
 void	ft_sort_string_tab(char **tab)
@@ -62,7 +59,7 @@ void	ft_sort_string_tab(char **tab)
 		j = 0;
 		while (j < len - i - 1)
 		{
-			if (strcmp(tab[j], tab[j + 1]) > 0) // change to ft_strcmp
+			if (ft_strcmp(tab[j], tab[j + 1]) > 0)
 				ft_swap(&tab[j], &tab[j + 1]);
 			j += 1;
 		}
@@ -70,7 +67,9 @@ void	ft_sort_string_tab(char **tab)
 	}
 }
 
-int	main()
+/*#include <string.h>
+#include <stdio.h>
+int	main(void)
 {
 	char *tab[6] = {"Hello", "My", "Name", "Hallo", "world", 0};
 	for (int i = 0; i < 5; i++)
@@ -81,4 +80,4 @@ int	main()
 		printf("%s ", tab[i]);
 	printf("\n");
 	return (0);
-}
+} */

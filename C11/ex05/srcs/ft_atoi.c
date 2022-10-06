@@ -6,16 +6,16 @@
 /*   By: amitcul <amitcul@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 16:12:30 by alexmitcul        #+#    #+#             */
-/*   Updated: 2022/10/04 22:32:22 by amitcul          ###   ########.fr       */
+/*   Updated: 2022/10/06 20:40:02 by amitcul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/doop.h"
 
-int ft_atoi(char *str)
+int	ft_atoi(char *str)
 {
-	int sign;
-	int res;
+	int	sign;
+	int	res;
 
 	sign = 1;
 	res = 0;

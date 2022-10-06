@@ -6,7 +6,7 @@
 /*   By: amitcul <amitcul@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 15:11:07 by alexmitcul        #+#    #+#             */
-/*   Updated: 2022/10/04 22:32:24 by amitcul          ###   ########.fr       */
+/*   Updated: 2022/10/06 20:39:49 by amitcul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ void	calculate(int a, int b, char operation)
 	operations_symbols[2] = '/';
 	operations_symbols[3] = '*';
 	operations_symbols[4] = '%';
-
 	i = 0;
 	while (i < 5)
 	{
