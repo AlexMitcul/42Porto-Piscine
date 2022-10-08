@@ -6,7 +6,7 @@
 /*   By: amitcul <amitcul@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 23:01:48 by amitcul           #+#    #+#             */
-/*   Updated: 2022/10/06 23:14:49 by amitcul          ###   ########.fr       */
+/*   Updated: 2022/10/07 23:06:52 by amitcul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ t_list	*ft_list_find(t_list *begin_list, void *data_ref, int (*cmp)())
 	return (0);
 }
 
-#include <stdio.h>
+/* #include <stdio.h>
 
 void	ft_putstr(char *str);
 int		ft_strcmp(char *s1, char *s2);
@@ -51,4 +51,4 @@ int main()
 
 
 	return 0;
-}
+} */

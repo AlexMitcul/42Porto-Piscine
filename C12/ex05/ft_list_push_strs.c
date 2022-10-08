@@ -6,7 +6,7 @@
 /*   By: amitcul <amitcul@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 22:15:57 by amitcul           #+#    #+#             */
-/*   Updated: 2022/10/05 22:21:12 by amitcul          ###   ########.fr       */
+/*   Updated: 2022/10/07 22:54:58 by amitcul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ t_list	*ft_list_push_strs(int size, char **strs)
 	head = 0;
 	while (i < size)
 	{
-		ft_list_push_back(&head, (void*)strs[i]);
+		ft_list_push_back(&head, (void *)strs[i]);
 		i++;
 	}
 	return (head);

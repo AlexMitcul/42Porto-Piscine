@@ -1,21 +1,18 @@
-
-
-OBJ = srcs/main.o srcs/ft_atoi.o srcs/operations.o srcs/parser.o \
-	srcs/print.o
+SRC = srcs/main.c srcs/ft_atoi.c srcs/operations.c srcs/parser.c srcs/print.c
+OBJ = $(SRC:.c=.o)
+NAME = do-op
 
 INCLUDES = includes/do-op.h
 
-do-op:
-	cc -o do-op $(OBJ) -I$(INCLUDES)
-
-all: do-op
+all:
+	gcc -Wall -Wextra -Werror $(SRC) -o $(NAME) -I$(INCLUDES)
 
 clean:
-	rm -rf do-op
+	rm -rf $(OBJ)
 
 fclean: clean
-	rm -rf *.o
+	rm -rf $(NAME)
 
-re: clean fclean all
+re: clean fclean
 
-.PHONY: clean fclean re do-op
+.PHONY: clean fclean re all

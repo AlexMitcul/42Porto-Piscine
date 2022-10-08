@@ -1,30 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_boolean.h                                       :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amitcul <amitcul@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/29 16:53:24 by amitcul           #+#    #+#             */
-/*   Updated: 2022/10/08 15:06:57 by amitcul          ###   ########.fr       */
+/*   Created: 2022/09/19 18:28:35 by amitcul           #+#    #+#             */
+/*   Updated: 2022/09/22 09:55:25 by amitcul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_BOOLEAN_H
-# define FT_BOOLEAN_H
+#include <unistd.h>
 
-# include <unistd.h>
-
-# define TRUE 1
-# define FALSE 0
-
-# define EVEN(n) (n % 2 == 0)
-
-# define EVEN_MSG "I have an even number of arguments.\n"
-# define ODD_MSG "I have an odd number of arguments.\n"
-
-# define SUCCESS 0
-
-typedef int	t_bool;
-
-#endif
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
+}

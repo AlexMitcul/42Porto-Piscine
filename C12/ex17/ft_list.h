@@ -1,30 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_boolean.h                                       :+:      :+:    :+:   */
+/*   ft_list.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amitcul <amitcul@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/29 16:53:24 by amitcul           #+#    #+#             */
-/*   Updated: 2022/10/08 15:06:57 by amitcul          ###   ########.fr       */
+/*   Created: 2022/10/05 18:55:50 by amitcul           #+#    #+#             */
+/*   Updated: 2022/10/07 23:12:42 by amitcul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_BOOLEAN_H
-# define FT_BOOLEAN_H
+#ifndef FT_LIST_H
+# define FT_LIST_H
 
-# include <unistd.h>
-
-# define TRUE 1
-# define FALSE 0
-
-# define EVEN(n) (n % 2 == 0)
-
-# define EVEN_MSG "I have an even number of arguments.\n"
-# define ODD_MSG "I have an odd number of arguments.\n"
-
-# define SUCCESS 0
-
-typedef int	t_bool;
+typedef struct s_list
+{
+	struct s_list	*next;
+	void			*data;
+}				t_list;
 
 #endif

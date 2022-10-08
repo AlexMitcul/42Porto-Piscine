@@ -1,54 +1,51 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_list_foreach_if.c                               :+:      :+:    :+:   */
+/*   ft_list_push_back.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amitcul <amitcul@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/06 21:19:41 by amitcul           #+#    #+#             */
-/*   Updated: 2022/10/07 23:06:35 by amitcul          ###   ########.fr       */
+/*   Created: 2022/10/05 22:07:53 by amitcul           #+#    #+#             */
+/*   Updated: 2022/10/05 22:15:18 by amitcul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_list.h"
 
-void	ft_list_foreach_if(t_list *begin_list, void (*f)(void *),
-	void *data_ref,
-	int (*cmp)())
+t_list	*ft_create_elem(void *data);
+
+void	ft_list_push_back(t_list **begin_list, void *data)
 {
-	while (begin_list)
+	t_list	*p;
+
+	p = *begin_list;
+	if (!p)
+		*begin_list = ft_create_elem(data);
+	else if (!p->next)
+		(*begin_list)->next = ft_create_elem(data);
+	else
 	{
-		if ((*cmp)(begin_list->data, data_ref) == 0)
-			(*f)(begin_list->data);
-		begin_list = begin_list->next;
+		while (p->next)
+			p = p->next;
+		p->next = ft_create_elem(data);
 	}
 }
 
 /* #include <stdio.h>
-#include <unistd.h>
-
-void	ft_list_push_back(t_list **begin_list, void *data);
-void	ft_putstr(void *str);
-int		ft_strcmp(char *s1, char *s2);
-
 int main()
 {
 	t_list	*head;
-	t_list	*p;
 
 	head = NULL;
-	ft_list_push_back(&head, "42");
-	ft_list_push_back(&head, "324");
-	ft_list_push_back(&head, "123");
-	ft_list_push_back(&head, "42");
+	ft_list_push_back(&head, "I'm first");
+	ft_list_push_back(&head, "I'm second");
+	ft_list_push_back(&head, "I'm last");
 
-	p = head;
 	while (head)
 	{
 		printf("List node contains: %s\n", (char*)head->data);
 		head = head->next;
 	}
-	ft_list_foreach_if(p, &ft_putstr, (void*)"42", &ft_strcmp);
 
 	return 0;
 } */
