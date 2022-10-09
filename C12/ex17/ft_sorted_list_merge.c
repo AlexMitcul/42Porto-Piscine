@@ -3,63 +3,59 @@
 /*                                                        :::      ::::::::   */
 /*   ft_sorted_list_merge.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amitcul <amitcul@student.42.fr>            +#+  +:+       +#+        */
+/*   By: alexmitcul <alexmitcul@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 23:11:34 by amitcul           #+#    #+#             */
-/*   Updated: 2022/10/07 23:54:35 by amitcul          ###   ########.fr       */
+/*   Updated: 2022/10/09 01:52:09 by alexmitcul       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_list.h"
 
-//! KO
+/*
+*	Step 1: Merge two lists
+*	Step 2: Sort that list
+*/
 
-static void	move(t_list **dest, t_list **src)
+static void	ft_list_merge(t_list **begin_list1, t_list *begin_list2)
 {
 	t_list	*p;
 
-	p = *src;
-	*src = p->next;
-	p->next = *dest;
-	*dest =  p;
+	p = *begin_list1;
+	while (p->next)
+		p = p->next;
+	p->next = begin_list2;
 }
 
-void ft_sorted_list_merge(t_list **begin_list1, t_list *begin_list2,
+static void	ft_list_sort(t_list **begin_list, int (*cmp)())
+{
+	void	*tmp;
+	t_list	*p;
+
+	p = *begin_list;
+	while (p->next != 0)
+	{
+		if (((*cmp)(p->data, p->next->data)) > 0)
+		{
+			tmp = p->data;
+			p->data = p->next->data;
+			p->next->data = tmp;
+			p = *begin_list;
+		}
+		else
+			p = p->next;
+	}
+}
+
+void	ft_sorted_list_merge(t_list **begin_list1, t_list *begin_list2,
 	int (*cmp)())
 {
-	t_list	*fist_lst = *begin_list1;
-	t_list	head;
-	t_list	*curr;
-
-	head.next = 0;
-	curr = &head;
-	while (1)
-	{
-		if (fist_lst == 0)
-		{
-			curr->next = begin_list2;
-			break ;
-		}
-		else if (begin_list2 == 0)
-		{
-			curr->next = fist_lst;
-			break ;
-		}
-		if ((*cmp)(fist_lst->data, begin_list2->data) > 0)
-			move(&(curr->next), &fist_lst);
-		else
-			move(&(curr->next), &begin_list2);
-		curr = curr->next;
-	}
-	*begin_list1 = head.next;
+	ft_list_merge(begin_list1, begin_list2);
+	ft_list_sort(begin_list1, cmp);
 }
 
-
-#include <stdio.h>
+/* #include <stdio.h>
 #include <stdlib.h>
-
-void	ft_putstr(char *str);
-void	ft_list_push_back(t_list **begin_list, void *data);
 
 int	compare(void *a, void *b)
 {
@@ -68,6 +64,8 @@ int	compare(void *a, void *b)
 	printf("%d-%d\n", a_int, b_int);
 	return (a_int - b_int);
 }
+
+void	ft_list_push_back(t_list **begin_list, void *data);
 
 int main()
 {
@@ -108,4 +106,4 @@ int main()
 	}
 
 	return 0;
-}
+} */
