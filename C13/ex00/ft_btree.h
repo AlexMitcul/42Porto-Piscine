@@ -1,22 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_point.h                                         :+:      :+:    :+:   */
+/*   ft_btree.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amitcul <amitcul@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/29 17:13:44 by amitcul           #+#    #+#             */
-/*   Updated: 2022/10/09 20:06:48 by amitcul          ###   ########.fr       */
+/*   Created: 2022/10/09 23:33:09 by amitcul           #+#    #+#             */
+/*   Updated: 2022/10/09 23:35:16 by amitcul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_POINT_H
-# define FT_POINT_H
-
-typedef struct s_point
+typedef struct	s_btree
 {
-	int	x;
-	int	y;
-}				t_point;
-
-#endif
+	struct s_btree	*left;
+	struct s_btree	*right;
+	void			*item;
+}				t_btree;

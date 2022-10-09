@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_point.h                                         :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amitcul <amitcul@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/29 17:13:44 by amitcul           #+#    #+#             */
-/*   Updated: 2022/10/09 20:06:48 by amitcul          ###   ########.fr       */
+/*   Created: 2022/09/27 11:24:34 by amitcul           #+#    #+#             */
+/*   Updated: 2022/10/09 22:35:13 by amitcul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_POINT_H
-# define FT_POINT_H
+#include "../includes/ft_hexdump.h"
 
-typedef struct s_point
+void	ft_putstr(char *str)
 {
-	int	x;
-	int	y;
-}				t_point;
-
-#endif
+	while (*str != '\0')
+	{
+		ft_putchar(*str);
+		str++;
+	}
+}

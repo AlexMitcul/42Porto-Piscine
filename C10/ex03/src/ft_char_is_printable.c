@@ -1,22 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_point.h                                         :+:      :+:    :+:   */
+/*   ft_char_is_printable.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amitcul <amitcul@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/29 17:13:44 by amitcul           #+#    #+#             */
-/*   Updated: 2022/10/09 20:06:48 by amitcul          ###   ########.fr       */
+/*   Created: 2022/09/23 14:02:34 by amitcul           #+#    #+#             */
+/*   Updated: 2022/10/09 22:47:00 by amitcul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_POINT_H
-# define FT_POINT_H
-
-typedef struct s_point
+int	ft_char_is_printable(char c)
 {
-	int	x;
-	int	y;
-}				t_point;
-
-#endif
+	if (c < 32 || c > 127)
+		return (0);
+	return (1);
+}

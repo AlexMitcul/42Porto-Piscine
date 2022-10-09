@@ -1,22 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_point.h                                         :+:      :+:    :+:   */
+/*   btree_create_node.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amitcul <amitcul@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/29 17:13:44 by amitcul           #+#    #+#             */
-/*   Updated: 2022/10/09 20:06:48 by amitcul          ###   ########.fr       */
+/*   Created: 2022/10/09 23:33:42 by amitcul           #+#    #+#             */
+/*   Updated: 2022/10/09 23:35:25 by amitcul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_POINT_H
-# define FT_POINT_H
+#include "ft_btree.h"
 
-typedef struct s_point
+t_btree	*btree_create_node(void *item)
 {
-	int	x;
-	int	y;
-}				t_point;
+	t_btree	*node;
 
-#endif
+	node = (t_btree *)malloc(sizeof(t_btree));
+	node->left = 0;
+	node->right = 0;
+	node->item = item;
+	return (node);
+}
