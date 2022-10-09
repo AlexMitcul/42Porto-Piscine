@@ -6,11 +6,9 @@
 /*   By: amitcul <amitcul@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 15:25:39 by amitcul           #+#    #+#             */
-/*   Updated: 2022/10/08 16:20:28 by amitcul          ###   ########.fr       */
+/*   Updated: 2022/10/09 19:34:08 by amitcul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-//close, open, read, write
 
 #include <fcntl.h>
 #include <unistd.h>

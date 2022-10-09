@@ -1,18 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amitcul <amitcul@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/19 18:28:35 by amitcul           #+#    #+#             */
-/*   Updated: 2022/10/09 19:34:03 by amitcul          ###   ########.fr       */
+/*   Created: 2022/09/27 11:17:30 by amitcul           #+#    #+#             */
+/*   Updated: 2022/10/09 18:22:52 by amitcul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+/*
+**	The strlen() function calculates the length of the
+**		string pointed to by s, excluding the terminating null byte ('\0')
+**	The strlen() function returns the number of
+**		bytes in the string pointed to by s.
+*/
 
-void	ft_putchar(char c)
+int	ft_strlen(char *str)
 {
-	write(1, &c, 1);
+	int	i;
+
+	i = 0;
+	while (str[i] != '\0')
+		i++;
+	return (i);
 }
