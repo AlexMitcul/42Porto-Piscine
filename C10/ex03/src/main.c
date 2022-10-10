@@ -3,26 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amitcul <amitcul@student.42.fr>            +#+  +:+       +#+        */
+/*   By: alexmitcul <alexmitcul@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 20:59:57 by amitcul           #+#    #+#             */
-/*   Updated: 2022/10/09 23:34:13 by amitcul          ###   ########.fr       */
+/*   Updated: 2022/10/10 01:04:39 by alexmitcul       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_hexdump.h"
 
-void	write_offset(int n, int i)
+void	write_offset(int n)
 {
-	const char *base;
-
-	base = "0123456789abcdef";
-	if (n / 16 > 0)
-		write_offset(n / 16, i + 1);
-	else if (i < 8)
-		while (++i <= 8)
-			write(1, "0", 1);
-	write(1, base + n % 16, 1);
+	// need to use here ft_convert_base from "0123456789"
+	// to "0123456789abcdef" and after than I get converted
+	// line, count ft_strlen() of this line and write '0'x(8 - ft_strlen)
 }
 
 void	write_hex_line(char *line, ssize_t bytes)
@@ -40,7 +34,7 @@ void	write_hex_line(char *line, ssize_t bytes)
 			ft_putstr(" ");
 		i++;
 	}
-	// if (bytes < 16)
+	// need add to space when line is not complete
 }
 
 void	write_content(char *line, ssize_t bytes)
@@ -72,16 +66,17 @@ void	read_hex_line(char *str)
 
 	fd = open(str, O_RDONLY);
 	bytes_readed = read(fd, &bf, 16);
+	i = 0;
+	write_offset(i);
 	while (bytes_readed)
 	{
-		// ft_putstr("          ");
-		ft_putstr("  ");
 		write_hex_line(bf, bytes_readed);
 		write_content(bf, bytes_readed);
 		bytes_readed = read(fd, &bf, 16);
 		i += 16;
+		write_offset(i);
 	}
-	write_offset(bytes_readed, 1);
+	write_offset(bytes_readed);
 
 }
 
