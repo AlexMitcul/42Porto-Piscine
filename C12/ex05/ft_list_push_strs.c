@@ -14,6 +14,8 @@
 
 t_list	*ft_create_elem(void *data);
 
+
+// Change to ft_list_push_front
 static void	ft_list_push_back(t_list **begin_list, void *data)
 {
 	t_list	*p;

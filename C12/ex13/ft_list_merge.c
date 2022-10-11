@@ -12,14 +12,20 @@
 
 #include "ft_list.h"
 
+// fixed | Need to test
 void	ft_list_merge(t_list **begin_list1, t_list *begin_list2)
 {
 	t_list	*p;
 
-	p = *begin_list1;
-	while (p->next)
-		p = p->next;
-	p->next = begin_list2;
+	if (begin_list1 == 0 || *begin_list1 == 0)
+		*begin_list1 = begin_list2;
+	else
+	{
+		p = *begin_list1;
+		while (p->next)
+			p = p->next;
+		p->next = begin_list2;
+	}
 }
 
 /* #include <stdio.h>

@@ -12,6 +12,34 @@
 
 #include "ft_list.h"
 
+
+/* two pointers version */
+// Need to test
+void	ft_list_sort(t_list **begin_list, int (*cmp)())
+{
+	t_list	*first;
+	t_list	*second;
+	t_list	*tmp;
+
+	first = *begin_list;
+	while (first != 0)
+	{
+		second = *begin_list;
+		while (second->next != 0)
+		{
+			if ((*cmp)(second->data, second->next->data) > 0)
+			{
+				tmp->data = second->data;
+				second->data = second->next->data;
+				second->next->data = tmp->data;
+			}
+			second = second->data;
+		}
+		first = first->data;
+	}
+}
+
+/* KO for this version
 void	ft_list_sort(t_list **begin_list, int (*cmp)())
 {
 	void	*tmp;
@@ -31,6 +59,7 @@ void	ft_list_sort(t_list **begin_list, int (*cmp)())
 			p = p->next;
 	}
 }
+*/
 
 /* #include <stdio.h>
 

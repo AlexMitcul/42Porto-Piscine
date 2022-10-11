@@ -6,7 +6,7 @@
 /*   By: alexmitcul <alexmitcul@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 23:11:34 by amitcul           #+#    #+#             */
-/*   Updated: 2022/10/09 01:52:09 by alexmitcul       ###   ########.fr       */
+/*   Updated: 2022/10/11 02:51:42 by alexmitcul       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,33 +17,44 @@
 *	Step 2: Sort that list
 */
 
+// Need to test
+
 static void	ft_list_merge(t_list **begin_list1, t_list *begin_list2)
 {
 	t_list	*p;
 
-	p = *begin_list1;
-	while (p->next)
-		p = p->next;
-	p->next = begin_list2;
+	if (begin_list1 == 0 || *begin_list1 == 0)
+		*begin_list1 = begin_list2;
+	else
+	{
+		p = *begin_list1;
+		while (p->next)
+			p = p->next;
+		p->next = begin_list2;
+	}
 }
 
 static void	ft_list_sort(t_list **begin_list, int (*cmp)())
 {
-	void	*tmp;
-	t_list	*p;
+	t_list	*first;
+	t_list	*second;
+	t_list	*tmp;
 
-	p = *begin_list;
-	while (p->next != 0)
+	first = *begin_list;
+	while (first != 0)
 	{
-		if (((*cmp)(p->data, p->next->data)) > 0)
+		second = *begin_list;
+		while (second->next != 0)
 		{
-			tmp = p->data;
-			p->data = p->next->data;
-			p->next->data = tmp;
-			p = *begin_list;
+			if ((*cmp)(second->data, second->next->data) > 0)
+			{
+				tmp->data = second->data;
+				second->data = second->next->data;
+				second->next->data = tmp->data;
+			}
+			second = second->data;
 		}
-		else
-			p = p->next;
+		first = first->data;
 	}
 }
 

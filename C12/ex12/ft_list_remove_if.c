@@ -12,21 +12,36 @@
 
 #include "ft_list.h"
 
+// Need to test
+
 void	ft_list_remove_if(t_list **begin_list, void *data_ref, int (*cmp)(),
 	void (*free_fct)(void *))
 {
 	t_list	*p;
+	t_list	*tmp;
 
 	p = *begin_list;
-	while (p)
+	while (p && p->next)
 	{
 		if ((*cmp)(p->data, data_ref) == 0)
-			(*free_fct)(p->data);
+		{
+			tmp = p->next;
+			p->next = p->next->next;
+			(*free_fct)(tmp->data);
+			free(tmp);
+		}
 		p = p->next;
 	}
+	p = *begin_list;
+	if (p && (*cmp)(p->data, data_ref) == 0)
+	{
+		*begin_list = p->next;
+		(*free_fct)(p->data);
+		free(p);
+	}
 }
-
-/* #include <stdio.h>
+/*
+#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
